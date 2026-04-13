@@ -1,4 +1,4 @@
-/* --- 1. THE OLED BLACKOUT (NUCLEAR OPTION) --- */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
@@ -27,8 +27,6 @@
 .mat-mdc-dialog-content, .mat-mdc-dialog-title, .mat-mdc-text-field-wrapper, .mdc-form-field {
     background-color: black !important;
 }
-/* --- 2. KILL THE "GRAY HAZE" & FILTERS --- */
-/* This is the secret fix: Google blurs the background which causes the gray look */
 .banner-and-app-container {
     background-color: #000000 !important;
     -webkit-backdrop-filter: none !important;

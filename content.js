@@ -1,8 +1,4 @@
-/**
- * BETTERSTUDIO ULTIMATE - V12.0 (ENTERPRISE)
- */
-
-// --- 1. PERFORMANCE OPTIMIZATIONS (STRICTLY PRESERVED) ---
+// PERFORMANCE OPTIMIZATIONS
 let debounceTimer;
 window.addEventListener('keydown', handleKey, true);
 window.addEventListener('keyup', handleKey, true);
@@ -44,7 +40,11 @@ const fastMode = () => {
 };
 setInterval(fastMode, 2000);
 
-// --- 2. THEME & PLUGIN ENGINES ---
+// END PERFORMANCE OPTIMIZATIONS
+
+
+// THEMES AND PLUGINS UI INJECT
+
 const themeTag = document.createElement('style');
 themeTag.id = 'bs-dynamic-theme';
 document.documentElement.appendChild(themeTag);
@@ -83,7 +83,6 @@ async function applyTheme(id, silent = false) {
     else triggerVignette(run);
 }
 
-// --- 3. MODAL UI ENGINE ---
 async function openBSModal(mode) {
     if (document.getElementById('bs-modal-overlay')) return;
 
@@ -233,7 +232,6 @@ async function openBSModal(mode) {
     renderList();
 }
 
-// --- 4. UI BOOT ---
 function injectUI() {
     const searchBtn = document.querySelector('.command-palette-button');
     if (!searchBtn || document.getElementById('bs-theme-btn')) return;
