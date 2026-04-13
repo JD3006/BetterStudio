@@ -1,0 +1,84 @@
+/* --- 1. GLOBAL OVERRIDES --- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --color-v3-surface: #1a1b26 !important;
+    --color-v3-surface-container: #24283b !important;
+    --color-v3-surface-container-high: #2f3549 !important;
+    --color-v3-text: #c0caf5 !important;
+    --color-v3-text-var: #565f89 !important;
+    --color-v3-outline: #414868 !important;
+    --color-v3-text-link: #7dcfff !important;
+}
+
+/* --- 2. FONTS & TEXT --- */
+* {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    color: #bb9af7 !important;
+}
+
+/* --- 3. SIDEBAR & NAVIGATION --- */
+.nav-content {
+    background: #16161e !important;
+    border-right: 2px solid #bb9af7 !important;
+}
+
+.logo-wrapper {
+    filter: hue-rotate(280deg) brightness(1.5) !important; /* Changes Google Logo color */
+}
+
+/* --- 4. CHAT MESSAGES (The bubbles) --- */
+ms-chat-message {
+    background: #1f2335 !important;
+    border: 1px solid #414868 !important;
+    border-radius: 20px !important;
+    margin: 15px !important;
+    padding: 20px !important;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.2) !important;
+}
+
+/* Distinct style for user vs model (if classes are present) */
+ms-chat-message:nth-child(odd) {
+    border-left: 5px solid #bb9af7 !important;
+}
+
+.model-response-text {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+}
+
+/* --- 5. INPUT BOX & FOOTER --- */
+.prompt-box-container {
+    background: #24283b !important;
+    border: 2px solid #bb9af7 !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+}
+
+textarea {
+    color: #c0caf5 !important;
+    font-size: 16px !important;
+}
+
+/* --- 6. BUTTONS --- */
+button[ms-button] {
+    border-radius: 4px !important;
+    background: #414868 !important;
+    color: white !important;
+    transition: all 0.3s !important;
+}
+
+button[ms-button]:hover {
+    background: #bb9af7 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* --- 7. SCROLLBARS --- */
+::-webkit-scrollbar { width: 8px !important; }
+::-webkit-scrollbar-track { background: #1a1b26 !important; }
+::-webkit-scrollbar-thumb { background: #bb9af7 !important; border-radius: 10px !important; }

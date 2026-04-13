@@ -1,0 +1,106 @@
+/* CINEMATIC TRANSITION */
+#bs-vignette-transition {
+    position: fixed; inset: 0; z-index: 999999; pointer-events: none;
+    background: black; clip-path: circle(0% at center);
+    transition: clip-path 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+#bs-vignette-transition.active { clip-path: circle(150% at center); }
+
+/* MODAL & OVERLAY */
+#bs-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px); z-index: 100000;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; animation: bsFadeIn 0.3s forwards;
+}
+#bs-modal-overlay.closing { animation: bsFadeOut 0.3s forwards; }
+
+#bs-modal {
+    width: 980px; height: 680px; background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; display: flex;
+    overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+}
+
+@keyframes bsFadeIn { to { opacity: 1; } }
+@keyframes bsFadeOut { to { opacity: 0; } }
+
+/* LEFT PANE (LIST & SEARCH) */
+.bs-modal-left { width: 340px; border-right: 1px solid #1a1a1a; background: #050505; display: flex; flex-direction: column; }
+.bs-modal-title { padding: 30px 25px 25px 25px; font-weight: 800; color: #fff; font-size: 24px; letter-spacing: -1px; }
+
+.bs-search-wrap { margin: 0 25px 20px 25px; position: relative; }
+.bs-search-wrap span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #555; }
+#bs-search { 
+    width: 100%; background: #111; border: 1px solid #222; border-radius: 12px; 
+    padding: 10px 10px 10px 40px; color: #fff; font-size: 14px; outline: none; transition: 0.2s;
+}
+#bs-search:focus { border-color: #3fb1ff; background: #000; }
+
+.bs-list { flex: 1; overflow-y: auto; padding-bottom: 20px; }
+.bs-list-item { 
+    padding: 14px 25px; cursor: pointer; display: flex; align-items: center; 
+    justify-content: space-between; transition: 0.2s; border-left: 4px solid transparent;
+}
+.bs-list-item:hover { background: #0f0f0f; }
+
+/* SELECTION GLOW SYSTEM */
+.bs-list-item.selected { 
+    background: linear-gradient(to right, rgba(0, 255, 136, 0.08), transparent);
+    border-left-color: #00ff88;
+}
+.bs-list-item.is-active .bs-name { color: #00ff88; font-weight: 600; }
+.bs-tick { color: #00ff88; font-size: 18px !important; }
+
+.bs-name { font-size: 15px; color: #bbb; }
+.bs-ver { font-size: 11px; color: #444; margin-top: 2px; }
+
+/* RIGHT PANE (DETAILS) */
+.bs-modal-right { flex: 1; padding: 60px; display: flex; flex-direction: column; background: #0a0a0a; position: relative; }
+#bs-details-box { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; /* Important for button positioning */
+}
+#bs-det-name { font-size: 42px; color: #fff; margin: 0; font-family: 'Inter Tight', sans-serif; font-weight: 800; }
+#bs-det-author { font-size: 14px; color: #555; margin-top: 15px; border-bottom: 1px solid #1a1a1a; padding-bottom: 15px; }
+#bs-det-author span { color: #3fb1ff; font-weight: 600; }
+#bs-det-desc {
+    flex: 1; /* Ensures text takes up space and pushes buttons */
+    margin-top: 25px;
+    color: #999;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.bs-color-preview { display: flex; height: 30px; border-radius: 6px; overflow: hidden; margin-bottom: 35px; }
+.bs-color-preview div { flex: 1; }
+.bs-text-content {
+    flex: 1; /* This pushes the actions div to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+/* ACTIONS */
+.bs-modal-actions {
+    margin-top: auto; /* Absolute insurance for bottom alignment */
+    padding-top: 20px;
+    
+}
+
+.bs-modal-actions button { padding: 14px 35px; border-radius: 14px; border: none; font-weight: 700; cursor: pointer; font-size: 14px; transition: 0.2s; margin-right: 5px; }
+#bs-close-btn { background: #1a1a1a; color: #fff; border: 1px solid #333; }
+#bs-close-btn:hover { background: #222; }
+#bs-action-btn { background: #fff; color: #000; }
+#bs-action-btn.success { background: #00ff88; color: #000; }
+#bs-action-btn.danger { background: #ff4444; color: #fff; }
+
+/* WELCOME STATE */
+#bs-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #444; }
+#bs-empty span { font-size: 64px; margin-bottom: 20px; color: #222; }
+#bs-empty h2 { color: #888; margin-bottom: 10px; }
+#bs-empty p { max-width: 300px; line-height: 1.5; }
+
+/* NATIVE OVERRIDES */
+ms-chat-message-list { contain: strict !important; }
+#bs-modal-overlay {
+    backdrop-filter: blur(4px); /* Was 6px or higher */
+}

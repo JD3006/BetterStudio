@@ -1,0 +1,122 @@
+/* --- 1. THE OLED BLACKOUT (NUCLEAR OPTION) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    /* Absolute Black Surface Reset */
+    --color-v3-surface: #000000 !important;
+    --color-v3-surface-container: #000000 !important;
+    --color-v3-surface-container-low: #000000 !important;
+    --color-v3-surface-container-high: #000000 !important;
+    --color-v3-surface-container-highest: #000000 !important;
+    --color-v3-surface-left-nav: #000000 !important;
+    --color-v3-overlay-background: rgba(0, 0, 0, 0.95) !important;
+    
+    /* Text & Borders */
+    --color-v3-text: #ffffff !important;
+    --color-v3-text-var: #999999 !important;
+    --color-v3-outline: #222222 !important;
+    --color-v3-outline-var: #1a1a1a !important;
+    --color-v3-text-link: #ffffff !important;
+    
+    /* UI Tightness */
+    --mat-sys-corner-extra-small: 4px !important;
+    --mat-sys-corner-small: 4px !important;
+    --mat-sys-corner-medium: 4px !important;
+    --mat-sys-corner-large: 4px !important;
+}
+.mat-mdc-dialog-content, .mat-mdc-dialog-title, .mat-mdc-text-field-wrapper, .mdc-form-field {
+    background-color: black !important;
+}
+/* --- 2. KILL THE "GRAY HAZE" & FILTERS --- */
+/* This is the secret fix: Google blurs the background which causes the gray look */
+.banner-and-app-container {
+    background-color: #000000 !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Force all layout segments to Black */
+body, ms-app, .layout-main, .chunk-editor-main, .chat-container, 
+.chat-view-container, .main-content-container, ms-chunk-editor, 
+ms-prompt-renderer, .makersuite-layout {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+
+/* --- 3. HEADER & TITLE VISIBILITY --- */
+ms-playground-toolbar, 
+.toolbar-container, 
+[_nghost-ng-c1959521906] {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #222222 !important;
+}
+
+/* Remove gradient overlays */
+[_nghost-ng-c1959521906]::after,
+ms-playground-toolbar::after,
+ms-chat-bottom-overlay {
+    display: none !important;
+}
+
+h1, h2, h3, .mode-title, .carousel-title, .hero-text {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* --- 4. THE INTER FONT & SHARP CORNERS --- */
+*:not(.material-symbols-outlined):not(.google-symbols):not(.mat-icon):not([class*="icon"]) {
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.02em !important; /* Pro technical feel */
+    border-radius: 4px !important;
+}
+
+/* --- 5. 1PX BORDER CARDS --- */
+.category-card, 
+.model-selector-card, 
+.system-instructions-card, 
+.paid-api-key-card {
+    background-color: #000000 !important;
+    border: 1px solid #333333 !important;
+    box-shadow: none !important;
+}
+
+.category-card:hover, .model-selector-card:hover {
+    border-color: #ffffff !important;
+    background-color: #080808 !important;
+}
+
+/* --- 6. INPUT AREA FIXES --- */
+.prompt-box-container {
+    background-color: #000000 !important;
+    border: 1px solid #444444 !important;
+    box-shadow: none !important;
+}
+
+/* Fix chips/buttons in the input area */
+.enabled-tool, .suggested-tool, button[ms-button].ms-button-filter-chip {
+    background-color: #000000 !important;
+    border: 1px solid #444444 !important;
+}
+
+/* Run Button */
+button.ms-button-primary {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* --- 7. SIDEBARS & UTILS --- */
+.nav-content, ms-right-side-panel, .content-container {
+    background-color: #000000 !important;
+    border-color: #222222 !important;
+}
+
+/* Ultra-thin scrollbar */
+::-webkit-scrollbar { width: 4px !important; height: 4px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
+::-webkit-scrollbar-thumb { background: #333 !important; border-radius: 0px !important; }
+
+/* White Logo */
+.logo-wrapper img, .logo-link svg {
+    filter: grayscale(1) brightness(10) !important;
+}
+

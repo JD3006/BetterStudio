@@ -1,0 +1,16 @@
+:root {
+    --color-v3-surface: #000000 !important;
+    --color-v3-surface-container: #000000 !important;
+    --color-v3-surface-container-high: #050505 !important;
+    --color-v3-text: #ffffff !important;
+    --color-v3-outline: #111111 !important;
+}
+
+.nav-content {
+    background-color: #000000 !important;
+    border-right: 1px solid #222 !important;
+}
+
+ms-chat-message {
+    border-bottom: 1px solid #111 !important;
+}

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "BetterStudio",
+  "version": "6.0",
+  "permissions": ["storage"],
+  "web_accessible_resources": [
+    {
+      "resources": ["themes/*.css", "themes.json", "plugins/*.js", "extensions.json"],
+      "matches": ["https://aistudio.google.com/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://aistudio.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

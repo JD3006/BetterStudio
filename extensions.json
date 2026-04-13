@@ -1,0 +1,9 @@
+[
+  {
+    "id": "zen_mode",
+    "name": "Zen Mode",
+    "author": "BetterStudio Team",
+    "version": "1.0.2",
+    "desc": "Removes the right sidebar and centers the chat area for a distraction-free writing experience. Perfect for long-form prompting."
+  }
+]

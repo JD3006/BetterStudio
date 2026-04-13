@@ -1,0 +1,16 @@
+[
+  {
+    "id": "master",
+    "name": "Master Blueprint",
+    "author": "BetterStudio",
+    "desc": "The ultimate example. Changes fonts, buttons, message bubbles, and every surface color.",
+    "colors": ["#1a1b26", "#bb9af7", "#7dcfff"]
+  },
+  {
+    "id": "midnight-mono",
+    "name": "Midnight Monochrome",
+    "author": "BetterStudio",
+    "desc": "A sleek, pure black and white theme that keeps the professional Google AI Studio layout while maximizing contrast.",
+    "colors": ["#000000", "#ffffff", "#0d0d0d"]
+  }
+]
