@@ -1,120 +1,158 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-:root {
-    /* Absolute Black Surface Reset */
+/* --- 1. THE TOKEN SYSTEM (Foundations) --- */
+:root, body, .dark-theme, .light-theme {
     --color-v3-surface: #000000 !important;
     --color-v3-surface-container: #000000 !important;
-    --color-v3-surface-container-low: #000000 !important;
     --color-v3-surface-container-high: #000000 !important;
-    --color-v3-surface-container-highest: #000000 !important;
-    --color-v3-surface-left-nav: #000000 !important;
-    --color-v3-overlay-background: rgba(0, 0, 0, 0.95) !important;
-    
-    /* Text & Borders */
+    --color-v3-surface-container-highest: #111111 !important; 
+    --color-surface: #000000 !important;
     --color-v3-text: #ffffff !important;
-    --color-v3-text-var: #999999 !important;
+    --color-on-surface: #ffffff !important;
     --color-v3-outline: #222222 !important;
-    --color-v3-outline-var: #1a1a1a !important;
-    --color-v3-text-link: #ffffff !important;
-    
-    /* UI Tightness */
-    --mat-sys-corner-extra-small: 4px !important;
+    --color-v3-hover: rgba(255, 255, 255, 0.1) !important;
+    --xap-color-surface: #000000 !important;
+    --color-v3-overlay-background: #000000 !important;
+
+     --mat-sys-corner-extra-small: 4px !important;
     --mat-sys-corner-small: 4px !important;
     --mat-sys-corner-medium: 4px !important;
     --mat-sys-corner-large: 4px !important;
-}
-.mat-mdc-dialog-content, .mat-mdc-dialog-title, .mat-mdc-text-field-wrapper, .mdc-form-field {
-    background-color: black !important;
-}
-.banner-and-app-container {
-    background-color: #000000 !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
+    --mat-sys-corner-extra-large: 4px !important;
+    --mdc-chip-container-shape: 4px !important;
 }
 
-/* Force all layout segments to Black */
-body, ms-app, .layout-main, .chunk-editor-main, .chat-container, 
-.chat-view-container, .main-content-container, ms-chunk-editor, 
-ms-prompt-renderer, .makersuite-layout {
-    background-color: #000000 !important;
+.dark-theme .xap-inline-dialog-container {
     background: #000000 !important;
+    color: var(--xap-color-on-surface,white)
 }
+/* --- 2. THE ULTIMATE CODE BLOCK FIX (No Gaps, No Cut Corners) --- */
 
-/* --- 3. HEADER & TITLE VISIBILITY --- */
-ms-playground-toolbar, 
-.toolbar-container, 
-[_nghost-ng-c1959521906] {
+mat-expansion-panel:has(pre) .mat-expansion-panel-body {
     background-color: #000000 !important;
-    border-bottom: 1px solid #222222 !important;
+    border-radius: 0 0 12px 12px !important;
+   
+}
+[ms-button] {
+    border-radius: 6px !important;
+}
+.system-instructions-card {
+    border: 1px solid var(--color-v3-outline-var) !important;
 }
 
-/* Remove gradient overlays */
-[_nghost-ng-c1959521906]::after,
-ms-playground-toolbar::after,
-ms-chat-bottom-overlay {
-    display: none !important;
+
+mat-expansion-panel:has(pre) mat-expansion-panel-header {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #222 !important;
+    border-radius: 12px 12px 0 0 !important;
 }
 
-h1, h2, h3, .mode-title, .carousel-title, .hero-text {
+
+.ms-button-borderless {
+    border: none !important;
+}
+
+/* The actual text container inside the pre */
+pre code {
+    display: block !important; /* Changed from inline-block to block */
+    width: 100% !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    min-width: max-content !important; /* Ensures bg extends when scrolling right */
+}
+
+/* Small inline code fragments fix */
+code:not(pre code) {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333333 !important;
+    color: #ffffff !important;
+    padding: 2px 5px !important;
+    border-radius: 4px !important;
+}
+
+/* --- 3. GROUNDING BUTTON FIX (White Outline & White Text) --- */
+
+.enabled-tool, 
+ms-grounding-config-button button,
+button.ms-button-filter-chip.enabled-tool {
+    background-color: #000000 !important;
+    border: 1px solid #ffffff !important; /* Hard white outline */
     color: #ffffff !important;
     opacity: 1 !important;
 }
 
-/* --- 4. THE INTER FONT & SHARP CORNERS --- */
-*:not(.material-symbols-outlined):not(.google-symbols):not(.mat-icon):not([class*="icon"]) {
-    font-family: 'Inter', sans-serif !important;
-    letter-spacing: -0.02em !important; /* Pro technical feel */
+/* Target all text/icons inside Grounding to force them white */
+.enabled-tool *, 
+ms-grounding-config-button button * {
+    color: #ffffff !important;
+    fill: #ffffff !important; /* For SVGs */
+}
+
+/* --- 4. PLUS BUTTON FIX (Force Black on White) --- */
+
+button[ms-button].ms-button-primary,
+button.ms-button-primary,
+.mat-mdc-fab.mat-primary,
+.mat-mdc-mini-fab.mat-primary {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
     border-radius: 4px !important;
 }
 
-/* --- 5. 1PX BORDER CARDS --- */
-.category-card, 
-.model-selector-card, 
-.system-instructions-card, 
-.paid-api-key-card {
-    background-color: #000000 !important;
-    border: 1px solid #333333 !important;
-    box-shadow: none !important;
-}
-
-.category-card:hover, .model-selector-card:hover {
-    border-color: #ffffff !important;
-    background-color: #080808 !important;
-}
-
-/* --- 6. INPUT AREA FIXES --- */
-.prompt-box-container {
-    background-color: #000000 !important;
-    border: 1px solid #444444 !important;
-    box-shadow: none !important;
-}
-
-/* Fix chips/buttons in the input area */
-.enabled-tool, .suggested-tool, button[ms-button].ms-button-filter-chip {
-    background-color: #000000 !important;
-    border: 1px solid #444444 !important;
-}
-
-/* Run Button */
-button.ms-button-primary {
-    background-color: #ffffff !important;
+/* Target icons/labels specifically */
+button[ms-button].ms-button-primary .mat-icon,
+button[ms-button].ms-button-primary .material-symbols-outlined,
+button[ms-button].ms-button-primary span {
     color: #000000 !important;
 }
 
-/* --- 7. SIDEBARS & UTILS --- */
-.nav-content, ms-right-side-panel, .content-container {
+/* --- 5. MODEL SELECTOR & HIGHLIGHTS FIX --- */
+
+.mat-mdc-chip, .ms-filter-chip {
     background-color: #000000 !important;
-    border-color: #222222 !important;
+    border: 1px solid #333333 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
 }
 
-/* Ultra-thin scrollbar */
-::-webkit-scrollbar { width: 4px !important; height: 4px !important; }
-::-webkit-scrollbar-track { background: transparent !important; }
-::-webkit-scrollbar-thumb { background: #333 !important; border-radius: 0px !important; }
+/* Selected state - Restore the highlight */
+.mat-mdc-chip-selected, .ms-filter-chip-active, [aria-pressed="true"] {
+    background-color: #222222 !important;
+    border-color: #ffffff !important;
+}
 
-/* White Logo */
+/* Restore hover highlights on cards */
+.category-card:hover, .model-selector-card:hover, .mat-mdc-list-item:hover {
+    background-color: #111111 !important;
+    border-color: #ffffff !important;
+    cursor: pointer !important;
+}
+
+/* --- 6. CLEANUP --- */
+
+/* Sidebar */
+ms-nav-drawer, .nav-container, .nav-content, .banner-and-app-container {
+    background-color: #000000 !important;
+}
+
+/* Navigation threads selected state */
+.nav-item-content-wrapper.selected, .nav-item-active {
+    background-color: #111111 !important;
+    border: 1px solid #333333 !important;
+}
+
+/* Typography and Logo */
+*:not(.material-symbols-outlined):not(.google-symbols):not(.mat-icon) {
+    font-family: 'Inter', sans-serif !important;
+}
+
 .logo-wrapper img, .logo-link svg {
     filter: grayscale(1) brightness(10) !important;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px !important; }
+::-webkit-scrollbar-thumb { background: #333 !important; }

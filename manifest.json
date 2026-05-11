@@ -2,7 +2,9 @@
   "manifest_version": 3,
   "name": "BetterStudio",
   "version": "6.0",
-  "permissions": ["storage"],
+  "permissions": ["storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"],
   "web_accessible_resources": [
     {
       "resources": ["themes/*.css", "themes.json", "plugins/*.js", "extensions.json"],
@@ -16,5 +18,15 @@
       "css": ["styles.css"],
       "run_at": "document_start"
     }
-  ]
+  ],
+  "host_permissions": [
+    "https://aistudio.google.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
 }

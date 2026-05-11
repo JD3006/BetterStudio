@@ -12,5 +12,33 @@
     "author": "BetterStudio",
     "desc": "A sleek, pure black and white theme that keeps the professional Google AI Studio layout while maximizing contrast.",
     "colors": ["#000000", "#ffffff", "#0d0d0d"]
+  },
+  {
+  "id": "kawaii-dream",
+  "name": "Kawaii Dreamland",
+  "author": "BetterStudio",
+  "desc": "A super cute pastel theme featuring Quicksand typography, polka-dot backgrounds, and bubbly UI elements for a cozy coding experience.",
+  "colors": ["#ffdeeb", "#ff85a1", "#e0f2f1"]
+  },
+  {
+  "id": "sepia-dark",
+  "name": "Sepia Dark",
+  "author": "BetterStudio",
+  "desc": "A sleek, minamalistic sepia dark themed design that features rounded corners and smooth colors.",
+  "colors": ["#141210", "#2e2b22", "#e8982a"]
+  },
+  {
+    "id": "mat3_override",
+    "name": "Mat3 Override",
+    "author": "BetterStudio",
+    "desc": "Test Material 3 Override",
+    "colors": ["#000000", "#ffffff", "#0d0d0d"]
+  },
+  {
+    "id": "terminal_override",
+    "name": "Terminal Override",
+    "author": "BetterStudio",
+    "desc": "A high-fidelity retro-future hacker terminal.",
+    "colors": ["#000000", "#ffffff", "#0d0d0d"]
   }
 ]

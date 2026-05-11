@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* --- 1. THE TERMINAL TOKEN SYSTEM --- */
+:root, body, .dark-theme, .light-theme {
+    /* Phosphor Green Palette */
+    --terminal-green: #00ff41;
+    --terminal-green-dim: #003b00;
+    --terminal-green-glow: rgba(0, 255, 65, 0.2);
+    --terminal-border: #008f11;
+    
+    --color-v3-surface: #000000 !important;
+    --color-v3-surface-container: #000000 !important;
+    --color-v3-surface-container-high: #050505 !important;
+    --color-v3-surface-container-highest: #001a00 !important; 
+    --color-surface: #000000 !important;
+    --color-v3-button-container: var(--terminal-green-dim) !important;
+    /* Text - All Phosphor Green */
+    --color-v3-text: var(--terminal-green) !important;
+    --color-on-surface: var(--terminal-green) !important;
+    --color-v3-text-var: var(--terminal-border) !important;
+    --color-v3-outline: var(--terminal-border) !important;
+    --color-v3-hover: rgba(0, 255, 65, 0.05) !important;
+    --xap-color-surface: #000000 !important;
+    --color-v3-overlay-background: rgba(0, 0, 0, 0.85) !important;
+    --color-run-settings-text: var(--terminal-green) !important;
+    --mat-option-label-text-color: var(--terminal-green) !important;
+    --color-v3-text-on-button: var(--terminal-green) !important;
+    --mat-sys-on-surface: var(--terminal-green) !important;
+    --color-on-surface-variant: var(--terminal-green) !important;
+    /* Brutalist Sharp Corners */
+    --mat-sys-corner-extra-small: 0px !important;
+    --mat-sys-corner-small: 0px !important;
+    --mat-sys-corner-medium: 2px !important;
+    --mat-sys-corner-large: 2px !important;
+    --mat-sys-corner-extra-large: 2px !important;
+    --mdc-chip-container-shape: 0px !important;
+}
+
+/* --- SLIDER & TOGGLE HARD OVERRIDE --- */
+:root, body {
+    /* This variable controls the active track and the thumb (knob) */
+    --mat-sys-primary: var(--terminal-green) !important;
+    
+    /* This controls the inactive track background */
+    --mat-sys-surface-variant: var(--terminal-green-dim) !important;
+
+    /* Specific Slider Tokens */
+    --mat-slider-active-track-color: var(--terminal-green) !important;
+    --mat-slider-inactive-track-color: var(--terminal-green-dim) !important;
+    --mat-slider-handle-color: var(--terminal-green) !important;
+    --mat-slider-hover-handle-color: var(--terminal-green) !important;
+    --mat-slider-focus-handle-color: var(--terminal-green) !important;
+    --mat-slider-value-indicator-container-color: var(--terminal-green) !important;
+    --mat-slider-value-indicator-label-text-color: #000000 !important;
+}
+
+.thinking-progress-icon, .avatar {
+    filter: grayscale(100%) sepia(100%) hue-rotate(90deg) !important;
+}
+
+/* 1. The Knob (The circle you grab) */
+.mdc-slider__thumb-knob {
+    background-color: var(--terminal-green) !important;
+    border-color: var(--terminal-green) !important;
+}
+
+/* 2. The Active Track (Left side of the knob) */
+.mdc-slider__track--active_fill {
+    border-color: var(--terminal-green) !important;
+}
+
+/* 3. The Inactive Track (Right side of the knob) */
+.mdc-slider__track--inactive {
+    background-color: var(--terminal-green-dim) !important;
+    opacity: 1 !important; /* Make it more visible in the dark */
+}
+
+/* 4. The Tooltip/Bubble that appears when sliding */
+.mdc-slider__value-indicator {
+    background-color: var(--terminal-green) !important;
+    color: #000 !important;
+    border-radius: 0px !important; /* Keep the terminal sharp look */
+}
+
+/* 5. Sliders inside Toggles (Switches) */
+.mdc-switch--selected .mdc-switch__track {
+    background-color: var(--terminal-green) !important;
+}
+
+.mdc-switch--selected .mdc-switch__handle::after {
+    background-color: #000 !important; /* Black knob on green track */
+}
+
+.mdc-switch--unselected .mdc-switch__track {
+    background-color: #1a1a1a !important;
+    border: 1px solid var(--terminal-border) !important;
+}
+
+/* --- 2. CRT SCANLINE & FLICKER EFFECTS --- */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 9999;
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Subtle CRT Flicker */
+@keyframes flicker {
+  0% { opacity: 0.987; }
+  5% { opacity: 0.963; }
+  10% { opacity: 0.912; }
+  15% { opacity: 0.985; }
+  20% { opacity: 0.923; }
+  100% { opacity: 1; }
+}
+ms-app {
+    animation: flicker 0.15s infinite;
+}
+
+/* --- 3. HARD TYPOGRAPHY OVERRIDE --- */
+*:not(.material-symbols-outlined):not(.google-symbols):not(.mat-icon) {
+    font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+    text-shadow: 0 0 5px var(--terminal-green-glow) !important;
+}
+
+/* --- 4. CODE BLOCK & EXPANSION PANELS --- */
+mat-expansion-panel:has(pre) .mat-expansion-panel-body {
+    background-color: #000000 !important;
+    border: 1px solid var(--terminal-border) !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+}
+
+mat-expansion-panel:has(pre) mat-expansion-panel-header {
+    background-color: #001a00 !important;
+    border: 1px solid var(--terminal-border) !important;
+    border-radius: 0 !important;
+    color: var(--terminal-green) !important;
+}
+
+pre code {
+    display: block !important;
+    width: 100% !important;
+    background: transparent !important;
+    color: var(--terminal-green) !important;
+}
+
+/* Inline Code Snippets */
+code:not(pre code) {
+    background-color: #002b00 !important;
+    border: 1px solid var(--terminal-green) !important;
+    color: #fff !important;
+    padding: 1px 4px !important;
+}
+
+/* --- 5. COMPONENT SHARPENING --- */
+
+/* Grounding Button - Neon Outline */
+.enabled-tool, 
+ms-grounding-config-button button,
+button.ms-button-filter-chip.enabled-tool {
+    background-color: #000000 !important;
+    border: 1px solid var(--terminal-green) !important;
+    box-shadow: 0 0 10px var(--terminal-green-glow) !important;
+    color: var(--terminal-green) !important;
+}
+
+.enabled-tool *, ms-grounding-config-button button * {
+    color: var(--terminal-green) !important;
+}
+
+/* Plus/Primary Buttons - Inverted Block Style */
+button[ms-button].ms-button-primary,
+button.ms-button-primary,
+.mat-mdc-fab.mat-primary {
+    background-color: var(--terminal-green) !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    border-radius: 0px !important;
+    text-transform: uppercase !important;
+}
+
+button[ms-button].ms-button-primary * {
+    color: #000000 !important;
+}
+
+/* Model Selector Tags */
+.mat-mdc-chip, .ms-filter-chip {
+    background-color: #000000 !important;
+    border: 1px solid var(--terminal-border) !important;
+    color: var(--terminal-green) !important;
+}
+.ms-button-borderless {
+    border: none !important;
+}
+
+.mat-mdc-chip-selected, .ms-filter-chip-active, [aria-pressed="true"] {
+    background-color: var(--terminal-green-dim) !important;
+    border-color: var(--terminal-green) !important;
+    box-shadow: 0 0 8px var(--terminal-green-glow) !important;
+}
+
+/* --- 6. INTERFACE CLEANUP --- */
+
+/* Sidebar Navigation Items */
+.nav-item-content-wrapper.selected, .nav-item-active {
+    background-color: #002200 !important;
+    border-left: 4px solid var(--terminal-green) !important;
+}
+
+/* Sidebar & Containers */
+ms-nav-drawer, .nav-container, .nav-content, .banner-and-app-container {
+    background-color: #000000 !important;
+    border-right: 1px solid var(--terminal-border) !important;
+}
+
+/* Text Input Area */
+textarea {
+    background: transparent !important;
+    caret-color: var(--terminal-green) !important;
+    border-left: 2px solid var(--terminal-green) !important;
+    padding-left: 10px !important;
+}
+
+/* Scrollbar - Minimalist Green */
+::-webkit-scrollbar { width: 5px !important; }
+::-webkit-scrollbar-track { background: #000 !important; }
+::-webkit-scrollbar-thumb { background: var(--terminal-border) !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--terminal-green) !important; }
+
+/* Dialog Containers */
+.dark-theme .xap-inline-dialog-container {
+    background: #000 !important;
+    border: 1px solid var(--terminal-green) !important;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2) !important;
+}

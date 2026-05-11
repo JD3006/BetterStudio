@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+/* --- 1. CORE DARK AMBER PALETTE & MATERIAL 3 OVERRIDES --- */
+:root, body, .dark-theme, .light-theme, html {
+    /* Exact Backgrounds Requested */
+    --bg: #0c0b09 !important;      /* Main Area */
+    --surface: #141210 !important; /* Sidebars */
+    
+    /* Elements Palette */
+    --surface-2: #1c1a16 !important;
+    --surface-3: #252219 !important;
+    --border: #2e2b22 !important;
+    --border-2: #3d3929 !important;
+    --amber: #e8982a !important;
+    --amber-dim: #c47d1c !important;
+    --amber-glow: rgba(232, 152, 42, 0.12) !important;
+    --amber-muted: rgba(232, 152, 42, 0.06) !important;
+    --text: #ede9e0 !important;
+    --text-2: #9a9282 !important;
+    --text-3: #5e5a52 !important;
+    --red-bg: rgba(207, 87, 82, 0.1) !important;
+    --red-text: #cf5752 !important;
+
+    /* Google AI Studio Variables (v3) */
+    --color-v3-surface: var(--surface) !important;
+    --color-v3-surface-container: var(--surface-2) !important;
+    --color-v3-surface-container-high: var(--surface-3) !important;
+    --color-v3-surface-container-highest: var(--surface-3) !important;
+    --color-surface: var(--bg) !important;
+    --color-v3-overlay-background: rgba(12, 11, 9, 0.8) !important;
+    
+    --color-v3-text: var(--text) !important;
+    --color-on-surface: var(--text) !important;
+    --color-v3-text-var: var(--text-2) !important;
+    --color-v3-text-disable: var(--text-3) !important;
+    
+    --color-v3-outline: var(--border) !important;
+    --color-v3-outline-var: var(--border-2) !important;
+    
+    --color-v3-text-link: var(--amber) !important;
+    --color-v3-button-container: var(--amber-glow) !important;
+    --color-v3-button-container-accent: var(--amber-glow) !important;
+    --color-v3-text-on-button: var(--amber) !important;
+    
+    --color-v3-hover: rgba(232, 152, 42, 0.08) !important;
+    
+    /* Nav & Material 3 Sys Overrides */
+    --color-nav-item-active: var(--amber-glow) !important;
+    --color-nav-item-hover: var(--surface-3) !important;
+    --mat-sys-surface: var(--surface) !important;
+    --mat-sys-surface-container: var(--surface-2) !important;
+    --mat-sys-surface-container-high: var(--surface-3) !important;
+    --mat-sys-surface-variant: var(--surface-3) !important;
+    --mat-sys-on-surface: var(--text) !important;
+    --mat-sys-on-surface-variant: var(--text-2) !important;
+    --mat-sys-outline: var(--border) !important;
+    --mat-sys-outline-variant: var(--border-2) !important;
+    --mat-sys-primary: var(--amber) !important;
+    --mat-dialog-container-color: var(--surface) !important;
+}
+
+/* --- 2. TYPOGRAPHY & FONT SMOOTHING --- */
+* {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Global Clean Sans-Serif */
+body, ms-app, .layout-main, div, p, a, button, input, textarea, select, mat-label, h1, h2, h3, h4, h5, h6, .mat-mdc-card-title, .mat-mdc-card-subtitle, .model-selector-name, .title, .mode-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 400 !important; 
+    color: var(--text);
+}
+
+/* Strictly Protect Icons */
+.material-symbols-outlined, .google-symbols, .mat-icon, [class*="icon"], font-icon {
+    font-family: 'Material Symbols Outlined', 'Google Symbols', 'Material Icons', sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+
+/* Code Fonts */
+code, pre, .token-pill, .slider-val, [aria-label*="tokens"], ms-token-count, .v3-token-count-value {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 11.5px !important;
+}
+
+/* RESTRICTED: Only the main "Explore Google models" text uses the Serif */
+.hero-title, .hero-title-text, h1:has(span) {
+    font-family: 'DM Serif Display', serif !important;
+    font-weight: normal !important;
+    letter-spacing: -0.5px !important;
+}
+.hero-title span, h1 > span { 
+    color: var(--amber) !important; 
+}
+
+/* --- 3. LAYOUT & SIDEBAR SEGMENTATION --- */
+/* Main background area */
+.layout-main, .main-content-container, .chat-view-container, ms-chunk-editor .chunk-editor-main { 
+    background-color: var(--bg) !important; 
+}
+
+/* Sidebars */
+.nav-content, ms-right-side-panel, ms-playground-toolbar, .toolbar-container, ms-run-settings { 
+    background-color: var(--surface) !important; 
+}
+
+/* Clean, full-height segment lines */
+.nav-content { 
+    border-right: 1px solid var(--border) !important; 
+}
+ms-right-side-panel, ms-run-settings { 
+    border-left: 1px solid var(--border) !important; 
+}
+ms-playground-toolbar { 
+    border-bottom: 1px solid var(--border) !important; 
+    box-shadow: none !important; 
+}
+ms-playground-toolbar::after { display: none !important; }
+
+/* Remove any weird history-specific borders if they exist */
+.turn-separator { display: none !important; }
+
+
+/* --- 4. RIGHT SIDEBAR SPECIFICS (Model ID in Code Font) --- */
+[data-test-id="model-name"] {
+    color: var(--amber) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 11px !important;
+    opacity: 0.9;
+    margin-top: 2px !important;
+}
+
+
+/* --- 5. LOGO RE-ENGINEERING --- */
+.logo-link {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    gap: 4px !important;
+    font-size: 0 !important; 
+}
+.logo-link ms-logo-icon, .logo-link svg, .logo-link img, .logo-link .logo-text { 
+    display: none !important; 
+}
+.logo-link::before {
+    content: "✦ Studio";
+    font-family: 'DM Serif Display', serif !important;
+    font-size: 20px !important;
+    color: var(--amber) !important;
+    letter-spacing: -0.5px !important;
+    display: block !important;
+}
+.logo-link::after {
+    content: "for Gemini";
+    color: var(--text-2) !important;
+    font-size: 11px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 400 !important;
+    display: block !important;
+    margin-top: 2px !important;
+}
+
+/* --- 6. SIDEBAR NAVIGATION --- */
+[ms-button].active, .active-override, .menu-item.active {
+    background-color: var(--amber-glow) !important;
+    border-radius: 8px !important;
+    color: var(--amber) !important;
+    font-weight: 500 !important;
+}
+[ms-button].active span, .active-override span, .menu-item.active span {
+    color: var(--amber) !important;
+}
+
+/* --- 7. PROMPT BOX & BUTTONS --- */
+.prompt-box-container {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+.prompt-box-container.focused, .prompt-box-container:focus-within {
+    border-color: var(--amber-dim) !important;
+}
+textarea { 
+    color: var(--text) !important; 
+    font-size: 13px !important; 
+    line-height: 1.6 !important; 
+}
+textarea::placeholder { color: var(--text-3) !important; }
+
+/* Primary "Run" Button */
+.ms-button-primary, button[ms-button].ms-button-primary, .run-btn {
+    background: var(--amber-glow) !important;
+    border: 1px solid var(--amber-dim) !important;
+    color: var(--amber) !important;
+    border-radius: 20px !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+}
+.ms-button-primary *, button[ms-button].ms-button-primary * {
+    color: var(--amber) !important;
+}
+.ms-button-primary:hover, button[ms-button].ms-button-primary:hover {
+    background: rgba(232, 152, 42, 0.18) !important; 
+    border-color: var(--amber) !important;
+}
+
+/* Filter Chips (Tools, Add Media, etc) */
+.ms-button-filter-chip, button[ms-button].ms-button-filter-chip {
+    background: transparent !important; 
+    border: 1px solid var(--border) !important;
+    color: var(--text-2) !important; 
+    border-radius: 20px !important;
+}
+.ms-button-filter-chip:hover {
+    background: var(--surface-2) !important; 
+    border-color: var(--border-2) !important; 
+    color: var(--text) !important;
+}
+
+/* No API Key Button (Red Alert Look) */
+.paid-api-key-button, .paid-api-key-button:hover, button:has(.material-symbols-outlined:contains('key_off')) {
+    background-color: var(--red-bg) !important;
+    color: var(--red-text) !important;
+    border: 1px solid rgba(207, 87, 82, 0.3) !important;
+    border-radius: 16px !important;
+}
+.paid-api-key-button *, button:has(.material-symbols-outlined:contains('key_off')) * {
+    color: var(--red-text) !important;
+}
+
+/* --- 8. CARDS & PANELS --- */
+.category-card, .model-selector-card, .settings-card, .system-instructions-card, ms-model-card, .mat-mdc-card, ms-model-selector {
+    background-color: var(--surface-2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+.category-card:hover, .model-selector-card:hover, .system-instructions-card:hover, ms-model-card:hover, .mat-mdc-card:hover {
+    border-color: var(--border-2) !important; 
+    background-color: var(--surface-3) !important;
+}
+
+.item-description-title {
+    color: var(--text-2);
+}
+.search-source, .v3-font-body {
+    color: var(--text-2);
+}
+
+/* --- 10. SWITCHES (TOOLS LIKE GOOGLE SEARCH) --- */
+.mdc-switch__track {
+    background-color: var(--surface-3) !important;
+    border-color: var(--border-2) !important;
+    height: 18px !important;
+}
+.mdc-switch--selected .mdc-switch__track {
+    background-color: rgba(232, 152, 42, 0.3) !important; /* Faded amber track */
+    border-color: var(--amber-dim) !important;
+}
+.mdc-switch__handle { 
+    background-color: var(--text-3) !important; 
+}
+.mdc-switch--selected .mdc-switch__handle { 
+    background-color: var(--amber) !important; /* Solid amber thumb */
+}
+
+/* --- 11. MISC TWEAKS & SCROLLBAR --- */
+::-webkit-scrollbar { width: 6px !important; height: 6px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
+::-webkit-scrollbar-thumb { background: var(--border-2) !important; border-radius: 4px !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3) !important; }
+
+/* Remove standard icons borders / cleanup */
+.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing { 
+    border: none !important; 
+}
+
+.tool-icon {
+    color: var(--amber);
+}

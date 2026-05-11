@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* --- 1. THE KAWAII DREAM TOKEN SYSTEM (Light/Pastel) --- */
+:root, body, .dark-theme, .light-theme {
+    /* Pastel Candy Palette */
+    --k-bg: #fff5f7;              /* Softest Pink */
+    --k-surface: #ffffff;         /* Pure White */
+    --k-accent: #ff85a1;          /* Bubblegum Pink */
+    --k-accent-soft: #ffc2d1;     /* Macaron Pink */
+    --k-purple: #e0bbfd;          /* Pastel Lavender */
+    --k-mint: #b2f7ef;            /* Soft Mint */
+    --k-text: #6d4c54;            /* Soft Cocoa Brown (Better than black for Kawaii) */
+    --k-text-dim: #a0858b;
+    --k-border: #ffcad4;
+
+    /* Material 3 Hard Overrides */
+    --color-v3-surface: var(--k-bg) !important;
+    --color-v3-surface-container: var(--k-surface) !important;
+    --color-v3-surface-container-high: var(--k-surface) !important;
+    --color-v3-surface-container-highest: var(--k-accent-soft) !important; 
+    --color-surface: var(--k-bg) !important;
+    
+    --color-v3-text: var(--k-text) !important;
+    --color-on-surface: var(--k-text) !important;
+    --color-v3-text-var: var(--k-text-dim) !important;
+    --color-v3-outline: var(--k-border) !important;
+    --color-v3-outline-var: var(--k-border) !important;
+    --color-v3-hover: rgba(255, 133, 161, 0.1) !important;
+    
+    --color-v3-overlay-background: rgba(255, 245, 247, 0.8) !important;
+    --color-v3-button-container-accent: var(--k-accent) !important;
+    --color-v3-text-on-button: #ffffff !important;
+
+    /* Maximum Bubbly Corners */
+    --mat-sys-corner-extra-small: 8px !important;
+    --mat-sys-corner-small: 12px !important;
+    --mat-sys-corner-medium: 18px !important;
+    --mat-sys-corner-large: 24px !important;
+    --mat-sys-corner-extra-large: 40px !important;
+    --mdc-chip-container-shape: 40px !important;
+}
+
+/* --- 2. CODE BLOCK RE-ENGINEERING (The "Sticking Out" Fix) --- */
+
+/* Outer Panel Fix */
+mat-expansion-panel.sticky-header {
+    border: 2px solid var(--k-border) !important;
+    box-shadow: 0 8px 20px -8px rgba(255, 133, 161, 0.3) !important;
+    overflow: hidden !important; /* Forces everything inside to respect corners */
+    background: var(--k-surface) !important;
+}
+
+/* Fix for the vertical line sticking out on the right */
+.mat-expansion-panel-content-wrapper, 
+.mat-expansion-panel-content,
+.mat-expansion-panel-body {
+    overflow: hidden !important; 
+    background-color: var(--k-surface) !important;
+}
+
+/* The actual Code Block inside the panel */
+mat-expansion-panel:has(pre) .mat-expansion-panel-body {
+    background-color: #fcf8ff !important; /* Soft lavender tint for code */
+    border-radius: 0 0 24px 24px !important;
+    padding: 0 !important;
+}
+
+/* Code Header (CSS/JS tab) */
+mat-expansion-panel-header.sticky {
+    background-color: var(--k-accent-soft) !important;
+    border-bottom: 2px solid var(--k-border) !important;
+    color: var(--k-text) !important;
+}
+
+pre {
+    background: transparent !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix for boxy glows: Using spread-radius and matching border-radius */
+.code-block-container {
+    box-shadow: 0 0 15px 0 rgba(255, 133, 161, 0.2) !important;
+    border-radius: 24px !important;
+}
+
+/* --- 3. THE "PUFFY" BUTTON SYSTEM --- */
+
+/* Plus Button & Primary Buttons (Candy Look) */
+button[ms-button].ms-button-primary,
+button.ms-button-primary,
+.mat-mdc-fab.mat-primary {
+    background: linear-gradient(to bottom, var(--k-accent), #ff5e84) !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 4px 0px #ffcad4, 0 6px 15px rgba(255, 133, 161, 0.4) !important;
+    color: #ffffff !important;
+    border-radius: 50px !important;
+    transition: transform 0.1s ease !important;
+}
+
+button[ms-button].ms-button-primary:active {
+    transform: translateY(2px) !important;
+    box-shadow: 0 2px 0px #ffcad4 !important;
+}
+
+button[ms-button].ms-button-primary * {
+    color: #ffffff !important;
+}
+
+/* Grounding Button (Pastel Pill) */
+.enabled-tool, 
+ms-grounding-config-button button {
+    background-color: var(--k-purple) !important;
+    border: 2px solid #ffffff !important;
+    color: var(--k-text) !important;
+    box-shadow: 0 4px 10px rgba(224, 187, 253, 0.4) !important;
+}
+
+.enabled-tool * {
+    color: var(--k-text) !important;
+}
+
+/* --- 4. TYPOGRAPHY & ICONS --- */
+
+*:not(.material-symbols-outlined):not(.google-symbols):not(.mat-icon) {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* Make icons soft purple instead of harsh black */
+.material-symbols-outlined, .mat-icon {
+    color: var(--k-accent) !important;
+}
+
+/* --- 5. INTERFACE CLEANUP --- */
+
+/* Sidebar Navigation */
+.nav-item-content-wrapper.selected, .nav-item-active {
+    background-color: var(--k-accent-soft) !important;
+    border-radius: 50px !important;
+    color: var(--k-text) !important;
+    border: 2px solid #ffffff !important;
+}
+
+/* Left Nav Background */
+ms-nav-drawer, .nav-content, .nav-container {
+    background-color: var(--k-bg) !important;
+    border-right: 2px solid var(--k-border) !important;
+}
+
+/* Logo - Turn it into Pink */
+.logo-wrapper img, .logo-link svg {
+    filter: sepia(1) saturate(5) hue-rotate(-50deg) brightness(1.1) !important;
+}
+
+/* Sliders - Marshmallow Style */
+.mdc-slider__thumb-knob {
+    background-color: var(--k-accent) !important;
+    border: 4px solid #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+.mdc-slider__track--inactive {
+    background-color: var(--k-border) !important;
+}
+
+/* Floating Animation for Model Responses */
+ms-chat-turn.model .chat-turn-container {
+    background: #fff !important;
+    border: 1px solid var(--k-border) !important;
+    box-shadow: 8px 8px 0px var(--k-accent-soft) !important; /* Anime "Sticker" effect */
+    margin-bottom: 20px !important;
+}
+
+/* Scrollbar - Bubbly Pink */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { 
+    background: var(--k-accent-soft); 
+    border-radius: 20px;
+    border: 3px solid var(--k-bg);
+}

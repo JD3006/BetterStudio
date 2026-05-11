@@ -1,0 +1,69 @@
+/* FORCE OVERRIDE ALL GOOGLE V3 VARIABLES */
+:root, body, .dark-theme, .light-theme {
+    /* Main Backgrounds */
+    --color-v3-surface: #ffa600 !important;
+    /* Pretty Much Just Run Button */
+    --color-v3-surface-container: #91ff00 !important;
+    /* Main Button And Container for Prompt */
+    --color-v3-surface-container-high: #ff0000 !important;
+
+
+    /* Switches And Modals  and buttons when highlighted*/
+    --color-v3-surface-container-highest: #00ffb3 !important;
+
+    /* unknown */
+    --color-surface: #000000 !important;
+
+    /* Left Nav / Sidebar */
+    --color-v3-surface-left-nav: #ff00f2 !important;
+    --color-v3-surface-left-nav-border: #6f00ff !important;
+
+    /* Text Colors */
+
+    /* Title Text And Chat Color */
+    --color-v3-text: #00692c !important;
+
+    /*Highlighted Button Text Color*/
+    --color-v3-text-var: #6e0000 !important;
+
+    --color-on-surface: #00005e !important;
+
+    /* Button Text Color */
+    --color-v3-text-on-button: #464700 !important;
+
+    /* Buttons & Interactions */
+
+    /* Bottom Tools And API Key Widgets And Markdown Backgrounds */
+    --color-v3-button-container: #14006e !important;
+
+
+    --mat-slide-toggle-unselected-track-color: #ffffff !important; /*Sliders while moving */
+    --mat-sys-surface-variant: #ffffff !important; /* Sliders while moving */
+    /*
+    --color-v3-button-container-high: #0084ff !important;
+
+    /* Other Buttons, like grounding with google search widget */
+    --color-v3-button-container-accent: #03899b !important;
+    --color-v3-hover: rgba(255, 255, 255, 0.1) !important;
+
+    /* Accents & Outlines */
+    --color-v3-outline: #633a3a !important;
+    --color-v3-outline-var: #70744c !important;
+    --color-v3-outline-accent: #4c5b70 !important;
+    --color-v3-text-link: #356140 !important;
+
+    /* Chat Elements */
+    --color-chat-core: #ff8484 !important;
+    /* code block bg color*/
+    --color-prompt-input-background: #7cff87 !important;
+    --color-prompt-input-border: #8789ff !important;
+    --user-chunk-background-color: #ff7de9 !important;
+
+    /*Navigation Item Color */
+    --color-nav-item-active: #123456 !important;
+}
+
+/* Fix for Scrollbars (Optional) */
+::-webkit-scrollbar { width: 8px !important; }
+::-webkit-scrollbar-track { background: #000 !important; }
+::-webkit-scrollbar-thumb { background: #333 !important; border-radius: 10px !important; }

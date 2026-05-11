@@ -2,8 +2,22 @@
   {
     "id": "zen_mode",
     "name": "Zen Mode",
-    "author": "BetterStudio Team",
+    "author": "BetterStudio",
     "version": "1.0.2",
     "desc": "Removes the right sidebar and centers the chat area for a distraction-free writing experience. Perfect for long-form prompting."
+  },
+   {
+    "id": "export_markdown",
+    "name": "Pro Markdown Exporter",
+    "author": "BetterStudio",
+    "version": "2.0.1",
+    "desc": "EXTREMELY BROKEN. Just a test on the plugin system."
+  },
+  {
+    "id": "ai_graph_renderer",
+    "name": "MathGraph Pro",
+    "author": "BetterStudio",
+    "version": "1.0.5",
+    "desc": "Allows Gemini to render live interactive graphs. Use system instructions to tell Gemini to wrap functions in ⦗graph: function, min, max⦘."
   }
 ]
