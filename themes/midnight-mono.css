@@ -40,6 +40,15 @@ mat-expansion-panel:has(pre) .mat-expansion-panel-body {
     border: 1px solid var(--color-v3-outline-var) !important;
 }
 
+.bottom-overlay {
+    background: linear-gradient(to top, var(--color-v3-surface) 0, transparent 95%) !important;
+    background-image: linear-gradient(to top, var(--color-v3-surface) 0, transparent 95%) !important;
+}
+
+ms-header::after {
+    background: linear-gradient(to bottom, var(--color-v3-surface) 0, transparent 95%) !important;
+    background-image: linear-gradient(to bottom, var(--color-v3-surface) 0, transparent 95%) !important;
+}
 
 mat-expansion-panel:has(pre) mat-expansion-panel-header {
     background-color: #000000 !important;

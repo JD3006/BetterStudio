@@ -14,10 +14,10 @@
     "desc": "EXTREMELY BROKEN. Just a test on the plugin system."
   },
   {
-    "id": "ai_graph_renderer",
-    "name": "MathGraph Pro",
+    "id": "extra_tools",
+    "name": "Extra Tools",
     "author": "BetterStudio",
     "version": "1.0.5",
-    "desc": "Allows Gemini to render live interactive graphs. Use system instructions to tell Gemini to wrap functions in ⦗graph: function, min, max⦘."
+    "desc": "Provides new tools for Google AI studio."
   }
 ]
